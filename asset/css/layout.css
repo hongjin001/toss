@@ -1,0 +1,318 @@
+@import './fonts.css';
+@import './reset.css';
+@import './common.css';
+
+
+
+.dimmed{
+    position: fixed;
+    top: 0;left: 0;
+    right: 0;bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+}
+.dimmed.active{
+    visibility: inherit;
+    opacity: 1;
+}
+
+.header{
+    display: flex;
+    height: 80px;
+    position: fixed;
+    top: 0;left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 10;
+    padding: 0 60px;
+    justify-content: center;
+    background: rgba(0, 29, 58, 0.18);
+    min-width: 1200px;
+}
+
+.header::after{
+    content: '';
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: #fff;
+    opacity: 0;
+    transition: 0.5s;
+    border-top: 1px solid #ddd;
+    
+    
+}
+
+.header.menu-active::after{
+    display: block;
+    opacity: 1;
+    
+}
+.util-area{
+    position: absolute;right: 60px;
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-menu{
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 0;
+}
+.btn-menu i{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 20px;
+   height: 2px;
+   background: #fff;
+   transition: 0.3s;
+
+}
+
+
+.btn-menu i.bar1{
+    margin-top: -10px;
+}
+.btn-menu i.bar2{
+  
+}
+.btn-menu i.bar3{
+    margin-top: 10px;
+
+}
+
+.btn-menu.active i.bar1{transform: rotate(45deg);margin-top: 0;}
+.btn-menu.active i.bar2{display: none;;}
+.btn-menu.active i.bar3{transform: rotate(-45deg);margin-top: 0;}
+
+/* transform: rotate(-45deg);
+transform: rotate(45deg); */
+
+.header .logo{
+    position: absolute;left: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header .logo img{width: 96px;height: 29px;}
+
+.header .gnb-nav{
+    text-align: center;
+}
+
+.header .gnb-list{
+    display: flex;
+}
+
+.header .gnb-item{
+    position: relative;
+}
+
+.header .gnb-item > a{
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.header .gnb-item::after{
+    content: '';
+    position: absolute;
+    bottom: 0;left: 0;
+    width: 0%;
+    height: 3px;
+    background: #00babb;
+    transition: 0.3s;
+}
+
+.header .gnb-item:hover::after{
+    width: 100%;
+
+}
+
+.header .gnb-item > a{
+    display: block;
+    line-height: 80px;
+    padding: 0 25px;
+    font-size: 17px;
+}
+
+.header .gnb-nav .sub-list{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    z-index: 2;
+}
+
+.header .gnb-nav .sub-list.active{display: flex;}
+
+.header .gnb-nav .gnb-item:first-child .sub-list{left: 0;transform: translateX(0);}
+.header .gnb-nav .gnb-item:last-child .sub-list{left: auto; right: 0;transform: translateX(0);}
+
+.header .gnb-nav .sub-list li{
+    flex-shrink: 0;
+    white-space: nowrap;
+    line-height: 70px;
+}
+.header .gnb-nav .sub-list li a{
+    padding: 0 20px;
+    position: relative;
+    display: inline-block;
+    
+    
+}
+.header .gnb-nav .sub-list li a span{position: relative;}
+.header .gnb-nav .sub-list li a span::after{
+    content: '';
+    position: absolute;
+    bottom: 0;left: 0;
+    width: 0%;
+    height: 1px;
+    background: #000;
+    transition: 0.3s;
+    
+}
+
+.header .gnb-nav .sub-list li a span:hover::after{
+    width: 100%;
+}
+
+/* 올메뉴 */
+
+.all-nav{
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    padding: 0 60px;
+    box-sizing: border-box;
+    white-space: nowrap;
+}   
+
+.all-nav .nav-list{padding: 50px 0;}
+.all-nav .all-list{display: flex;justify-content: space-between;max-width: 1200px;margin: 0 auto;}
+.all-nav .all-list > li > a{font-weight: 700; text-transform: uppercase;}
+.all-nav .all-item{margin-top: 25px;position: relative;}
+
+.all-nav .all-item a span{position: relative;}
+.all-nav .all-item a span::after{
+    content: '';
+    position: absolute;
+    bottom: 0;left: 0;
+    width: 0%;
+    height: 1px;
+    background: #000;
+    transition: 0.3s; 
+}
+
+.all-nav .all-item a span:hover::after{
+    width: 100%;
+}
+
+
+
+
+
+
+.footer{}
+.footer .inner{
+    
+    border: 1px solid #e0e0e0;
+}
+
+.footer .footer-top{
+    display: flex;justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin: 0 60px;
+    padding: 20px 0;
+    
+}
+
+.footer .footer-link a{
+    margin-right: 10px;
+    font-size: 15px;
+    position: relative;
+}
+
+.footer .footer-link a::after{
+    content: '';
+    position: absolute;
+    bottom: 0;left: 0;
+    width: 0%;
+    height: 1px;
+    background: #000;
+    transition: 0.3s;
+}
+.footer .footer-link a:hover::after{
+    width: 100%;
+}
+
+.footer .footer-link .link-active{
+    font-weight: bold;
+}
+
+.footer .footer-utill{display: flex;gap: 30px;align-items: center;}
+
+.footer .footer-sns .icon{
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+
+.footer .icon{ display: inline-block; font-family: "icon"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; text-transform: none; }
+.footer .icon-facebook::before{content: "";}
+.footer .icon-blog::before{content: "";}
+.footer .icon-instagram::before{content: "";}
+.footer .icon-youtube::before{content: "";}
+.footer .icon-post::before{content: "";}
+
+.footer .footer-site select{
+    box-sizing: border-box;
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+
+
+
+.footer .footer-bottom{
+    margin: 0 60px;
+}
+
+.footer .footer-info p{
+    padding-top: 30px;
+    margin-bottom: 24px;
+    color: #424242;
+    font-size: 15px;
+    line-height: 1.15;
+    display: inline-block;
+}
+
+.footer .footer-info strong{
+    height: 69px;
+    color: #757575;
+    padding-bottom: 50px;
+    
+}
+
+.footer .bar::after{
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 15px;
+    top: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+    background: #e0e0e0;
+    position: relative;
+}
